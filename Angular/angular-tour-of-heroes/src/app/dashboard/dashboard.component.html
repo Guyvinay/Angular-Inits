@@ -1,1 +1,5 @@
 <p>dashboard works!</p>
+
+<a *ngFor="let hero of heroes" routerLink="/details/{{hero.id}}">{{hero.name}}</a>
+
+
