@@ -29,13 +29,16 @@ import { ChildComponent } from "./child.component";
     </ul>
   </app-child>
   <button (click)="count=count+1">Count Button : {{count}} </button>
+  <h2>{{message}}</h2>
   `,
     imports: [RouterOutlet, ChildComponent]
 })
 export class AppComponent {
   title = 'D-04';
   count:number=0;
+  message:any = "";
   handleChildEmit(message:any) {
-  alert(message);
+  // alert(message);
+  this.message = message;
   }
 }
