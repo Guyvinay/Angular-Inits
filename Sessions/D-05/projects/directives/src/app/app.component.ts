@@ -51,6 +51,32 @@ import { Component } from '@angular/core';
       <h3 ngNonBindable >{{Hello Wolf}}</h3>
 
     </fieldset>
+    <fieldset>
+      <legend>
+        Ng-Style
+      </legend>
+
+      <div [style]="styleProp" >
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt similique voluptatem recusandae adipisci blanditiis laborum voluptatibus amet vero odit maxime omnis, tempore odio dicta facilis eveniet nostrum vel a reiciendis!
+      </div>
+      <div [style.backgroundColor]="bgcol1" >
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt similique voluptatem recusandae adipisci blanditiis laborum voluptatibus amet vero odit maxime omnis, tempore odio dicta facilis eveniet nostrum vel a reiciendis!
+      </div>
+
+      <div [ngStyle]="{'background-color':bgcol2, 'color':'darkblue'}" >
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt similique voluptatem recusandae adipisci blanditiis laborum voluptatibus amet vero odit maxime omnis, tempore odio dicta facilis eveniet nostrum vel a reiciendis!
+      </div>
+
+      <div [ngStyle]="{'background-color':bgcol2, 'color':rating>3?'red':'green'}" >
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt similique voluptatem recusandae adipisci blanditiis laborum voluptatibus amet vero odit maxime omnis, tempore odio dicta facilis eveniet nostrum vel a reiciendis!
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>NgCLass</legend>
+      <div [ngClass]="{redbox:rating>2, bluebox:rating>4}" >
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt similique voluptatem recusandae adipisci blanditiis laborum voluptatibus amet vero odit maxime omnis, tempore odio dicta facilis eveniet nostrum vel a reiciendis!
+      </div>
+    </fieldset>
   `,
   styles: [`
     .rating{
@@ -58,10 +84,25 @@ import { Component } from '@angular/core';
       font-family:arial;
       color:goldenrod;
     }
+    .redbox{
+      width:330px;
+      background-color:red;
+      text-align:center;
+      margin:auto;
+    }
+    .bluebox{
+      width:330px;
+      background-color:blue;
+      text-align:center;
+      margin:auto;
+    }
   `],
 })
 export class AppComponent {
   title = 'directives';
   avengers=["Ironman", "Captain America", "Thor", "Black Widow", "Hulk", "Nick Fury", "Doctor Strange","Antman", "Iron Machine"];
   rating:any;
+  styleProp="width:400px; padding:15px; margin:auto; font-family:arial; text-align:justify; background-color:silver; border:1px solid darkslategrey"
+  bgcol1="yellow"
+  bgcol2="cyan"
 }
