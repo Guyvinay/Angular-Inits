@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormComponent } from './form/form.component';
 import { DisplayComponent } from './display/display.component';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,7 @@ import { DisplayComponent } from './display/display.component';
 })
 export class AppComponent {
   title = 'Ng-CRUD';
+  ngOnInit(): void {
+    initFlowbite();
+  }
 }
