@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TitleStrategy } from '@angular/router';
+import { Student } from '../interfaces/student';
 
 @Component({
   selector: 'app-form',
@@ -12,7 +13,9 @@ import { TitleStrategy } from '@angular/router';
 })
 export class FormComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
+
+  students:Student[] = [];
 
   ngOnInit(): void {
     console.log(this.myForm.value);
@@ -32,7 +35,8 @@ export class FormComponent implements OnInit {
   selectedTechStacks:string[] = [];
 
   onSubmit(): void {
-    console.log(this.myForm.value);
+    this.students.push(this.myForm.value);
+    console.log(this.students);
   }
 
   myForm: FormGroup = new FormGroup({
@@ -51,13 +55,12 @@ export class FormComponent implements OnInit {
     if (!currentTechStacks.includes(tech)) {
       // Push the selected tech into the techStacks array
       currentTechStacks.push(tech);
-
       // Update the value of the techStacks form control
       techStacksControl.setValue(currentTechStacks);
+      // this.selectedTechStacks = currentTechStacks;
     }
-    this.selectedTechStacks = currentTechStacks;
   }
-  
+
   removeSelectedTech(ind:number){
     this.selectedTechStacks.splice(ind, 1);
     console.log(this.selectedTechStacks);
@@ -70,7 +73,17 @@ export class FormComponent implements OnInit {
   get getEmail() {
     return this.myForm.get("email");
   }
+  
   get getTechStacks() {
     return this.myForm.get("techStacks");
   }
+
+  deleteStudent(student:Student):void{
+
+  }
+
+  updateStudent(student:Student):void{
+
+  }
+
 }
