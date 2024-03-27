@@ -59,6 +59,7 @@ export class FormComponent implements OnInit {
       techStacksControl.setValue(currentTechStacks);
       // this.selectedTechStacks = currentTechStacks;
     }
+    this.selectedTechStacks = currentTechStacks;
   }
 
   removeSelectedTech(ind:number){
