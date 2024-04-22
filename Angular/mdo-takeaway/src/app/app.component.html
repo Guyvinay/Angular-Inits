@@ -1,1 +1,28 @@
 <router-outlet />
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+  <div *cdkVirtualFor="let item of items" class="example-item">
+    {{item}}
+  </div>
+</cdk-virtual-scroll-viewport>
+
+<mat-table [dataSource]="dataSource">
+  <!-- Define columns -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="age">
+    <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.age}} </mat-cell>
+  </ng-container>
+
+  <!-- Column definitions -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<c-search (searchChange)="search($event)" placeholder="Search Query"></c-search>
+
+<div>
+  <span>{{text}}</span>
+</div>
