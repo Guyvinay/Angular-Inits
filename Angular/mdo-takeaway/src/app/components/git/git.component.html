@@ -1,0 +1,10 @@
+<c-search (searchChange)="searchFieldSub.next($event)" placeholder="Search Query"></c-search>
+
+<!-- <div *ngIf="error" class="error">{{ error }}</div> -->
+
+<div *ngIf="user">
+  <h2>{{ user.login }}</h2>
+  <img [src]="user.avatar_url" alt="User Avatar" width="100" height="100" />
+  <p>{{ user.name }}</p>
+  <p>{{ user.bio }}</p>
+</div>

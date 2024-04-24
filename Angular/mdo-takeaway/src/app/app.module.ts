@@ -10,6 +10,7 @@ import { SearchComponent } from './custom/search/search.component';
 import { NgTCComponent } from './new/ng-t-c/ng-t-c.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GitComponent } from './components/git/git.component';
 
 
 
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     SearchComponent,
     NgTCComponent,
     RxjsComponent,
+    GitComponent,
    
   ],
   imports: [
