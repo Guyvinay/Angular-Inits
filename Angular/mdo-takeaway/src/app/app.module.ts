@@ -7,6 +7,9 @@ import { MatCardModule } from '@angular/material/card';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatTableModule } from '@angular/material/table';
 import { SearchComponent } from './custom/search/search.component';
+import { NgTCComponent } from './new/ng-t-c/ng-t-c.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,11 +17,14 @@ import { SearchComponent } from './custom/search/search.component';
   declarations: [
     AppComponent,
     SearchComponent,
+    NgTCComponent,
+    RxjsComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MatCardModule,
     ScrollingModule,
     MatTableModule

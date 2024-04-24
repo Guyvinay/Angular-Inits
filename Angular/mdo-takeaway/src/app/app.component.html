@@ -21,8 +21,11 @@
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
-<c-search (searchChange)="search($event)" placeholder="Search Query"></c-search>
+<!-- <c-search (searchChange)="search($event)" placeholder="Search"></c-search> -->
+<c-search (searchChange)="searchFieldSub.next($event)" placeholder="Search Query"></c-search>
 
 <div>
   <span>{{text}}</span>
 </div>
+
+<app-rxjs></app-rxjs>
