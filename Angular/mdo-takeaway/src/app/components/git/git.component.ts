@@ -27,6 +27,27 @@ export class GitComponent implements OnInit {
     ).subscribe((searchStr: string)=>{
       this.getUserInfo(searchStr);
     });
+    /*
+    this.searchSubscription.pipe(
+      debounceTime(1300),
+      distinctUntilChanged(),
+      switchMap((searchStr)=>{
+        return this.gitService.getUser(searchStr);
+      })
+    ).subscribe({
+      next:(user:any)=> {
+        this.user=user;
+        this.error=null;
+      },
+      error:(error:any)=>{
+        this.error=error;
+        this.user=null;
+      },
+      complete:()=>{
+        console.log("completed");
+      }
+      });
+      */
   }
 
 
@@ -45,5 +66,10 @@ export class GitComponent implements OnInit {
         console.log("completed");
       }
   })
+  }
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserData } from './UserData';
 import { HtmlTagDefinition } from '@angular/compiler';
 import { EMPTY, Subject, Subscription, debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
+import { UtilsComponent } from './components/utils/utils.component';
 
 
 @Component({
@@ -12,6 +13,9 @@ import { EMPTY, Subject, Subscription, debounceTime, distinctUntilChanged, of, s
 })
 export class AppComponent implements OnInit {
   alertType:string='alert-success';
+  @ViewChild(UtilsComponent) utilsComponent!:UtilsComponent;
+
+
   /*
   ngOnInit(): void {
     this.subscription = this.searchFieldSub.pipe(
@@ -59,6 +63,11 @@ export class AppComponent implements OnInit {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+
+
+  callChildMethod():void{
+    this.utilsComponent.inputValue="FROM parent component";
   }
   
 
