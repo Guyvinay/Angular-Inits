@@ -13,6 +13,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { PopupComponent } from './new/popup/popup.component';
 import { GitComponent } from './components/git/git.component';
 import { UtilsComponent } from './components/utils/utils.component';
+import { RxjsComponent } from './components/rxjs/rxjs.component';
 
 
 
@@ -24,6 +25,7 @@ import { UtilsComponent } from './components/utils/utils.component';
     PopupComponent,
     GitComponent,
     UtilsComponent,
+    RxjsComponent,
    
   ],
   imports: [
