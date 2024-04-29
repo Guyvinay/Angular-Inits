@@ -11,6 +11,8 @@ import { NgTCComponent } from './new/ng-t-c/ng-t-c.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GitComponent } from './components/git/git.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { PopupComponent } from './new/popup/popup.component';
 
 
 
@@ -21,6 +23,7 @@ import { GitComponent } from './components/git/git.component';
     NgTCComponent,
     RxjsComponent,
     GitComponent,
+    PopupComponent,
    
   ],
   imports: [
@@ -31,7 +34,9 @@ import { GitComponent } from './components/git/git.component';
     ScrollingModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
