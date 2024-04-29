@@ -8,11 +8,10 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatTableModule } from '@angular/material/table';
 import { SearchComponent } from './custom/search/search.component';
 import { NgTCComponent } from './new/ng-t-c/ng-t-c.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
 import { HttpClientModule } from '@angular/common/http';
-import { GitComponent } from './components/git/git.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PopupComponent } from './new/popup/popup.component';
+import { GitComponent } from './components/git/git.component';
 
 
 
@@ -21,9 +20,8 @@ import { PopupComponent } from './new/popup/popup.component';
     AppComponent,
     SearchComponent,
     NgTCComponent,
-    RxjsComponent,
-    GitComponent,
     PopupComponent,
+    GitComponent,
    
   ],
   imports: [

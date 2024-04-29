@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EMPTY, Subject, Subscription, debounceTime, distinctUntilChanged, switchMap, takeUntil } from 'rxjs';
-import { AppService } from '../../services/app.service';
+import { Subject, Subscription, debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
 import { GithubService } from '../../services/github.service';
+import { coerceStringArray } from '@angular/cdk/coercion';
 import { User } from '../../modals/user';
 
 @Component({
@@ -10,66 +10,40 @@ import { User } from '../../modals/user';
   styleUrl: './git.component.scss'
 })
 export class GitComponent implements OnInit {
-  
-  private unsubscribe$: Subject<void> = new Subject<void>();
-  searchFieldSub: Subject<string> = new Subject();
-  subscription !: Subscription;
+  subscription!:Subscription;
+  searchSubscription:Subject<string> = new Subject();
   user: any;
-  messages:string='Message to be passed from GitComponent';
+  error: string | null = null;
+
 
   constructor(
-    private service:AppService,
     private gitService:GithubService
-  ){
-    this.gitService.getUserSubject().pipe(takeUntil(this.unsubscribe$))
-    .subscribe((user)=>{
-      this.user=user;
-    })
-  }
-  
+  ){}
+
   ngOnInit(): void {
-      this.subscription = this.searchFieldSub.pipe(
-                            debounceTime(800),
-                            distinctUntilChanged(),
-                            switchMap((searchStr)=>{
-                              if(searchStr){
-                                this.getUserInfo(searchStr);
-                                return EMPTY;
-                              }
-                              return EMPTY;
-                            })
-                          ).subscribe((res)=>{});
+    this.searchSubscription.pipe(
+      debounceTime(1300),
+      distinctUntilChanged()
+    ).subscribe((searchStr: string)=>{
+      this.getUserInfo(searchStr);
+    });
   }
 
-  getUserInfo(username:any):void{
-    console.log(username);
-    this.service.getUserInfo(username).pipe(
-      debounceTime(500),
-      distinctUntilChanged(),
-      switchMap((user)=>{
+
+  getUserInfo(searchStr: string) {
+    this.gitService.getUser(searchStr)
+    .subscribe({
+      next:(user:any)=> {
         this.user=user;
-        console.log(user);
-        // return this.getUserInfo(username);
-        return EMPTY;
-      })
-    )
-    .subscribe((res)=>{})
+        this.error=null;
+      },
+      error:(error:any)=>{
+        this.error=error;
+        this.user=null;
+      },
+      complete:()=>{
+        console.log("completed");
+      }
+  })
   }
-
-  getUserGitInfo(username:any):void{
-    console.log(username);
-    this.service.getUserInfo(username).pipe(
-      debounceTime(500),
-      distinctUntilChanged(),
-      switchMap((user)=>{
-        this.user=user;
-        console.log(user);
-        // return this.getUserInfo(username);
-        return EMPTY;
-      })
-    )
-    .subscribe((res)=>{})
-  }
-
 }
-

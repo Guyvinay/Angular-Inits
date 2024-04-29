@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserData } from './UserData';
 import { HtmlTagDefinition } from '@angular/compiler';
-import { EMPTY, Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { EMPTY, Subject, Subscription, debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
 
 
 @Component({
@@ -12,9 +12,10 @@ import { EMPTY, Subject, Subscription, debounceTime, distinctUntilChanged, switc
 })
 export class AppComponent implements OnInit {
   alertType:string='alert-success';
+  /*
   ngOnInit(): void {
     this.subscription = this.searchFieldSub.pipe(
-      debounceTime(300),
+      debounceTime(1300),
       distinctUntilChanged(),
       switchMap((searchStr)=>{
         console.log(searchStr);
@@ -22,6 +23,17 @@ export class AppComponent implements OnInit {
         return EMPTY;
       })
     ).subscribe(() => {});
+  }
+  */
+  ngOnInit(): void {
+    this.subscription = this.searchFieldSub.pipe(
+      debounceTime(1300),
+      distinctUntilChanged(),
+      switchMap((searchStr)=> of(searchStr))
+    ).subscribe((searchStr) => {
+      console.log(searchStr);
+      this.text = searchStr;
+    });
   }
   
   subscription!: Subscription;
@@ -39,9 +51,9 @@ export class AppComponent implements OnInit {
 
   text:string='';
 
-  search(event: string){
-    this.text=event;
-  }
+  // search(event: string){
+  //   this.text=event;
+  // }
 
   ngOnDestroy(): void {
     if (this.subscription) {
