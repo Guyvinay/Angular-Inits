@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable, filter, fromEvent, interval, map, of, pipe } from 'rxjs';
 import { MessageService } from '../../services/message.service';
 import { Message } from '../../modals/message';
@@ -13,6 +13,15 @@ export class RxjsComponent implements OnInit {
   message$!:Observable<Message>;
   error$!:Observable<any>;
   warning$!:Observable<Message>;
+  visible=true;
+  @Output() open = new EventEmitter<any>();
+  @Output() close = new EventEmitter<any>();
+
+
+  time = new Observable<string>(observer => {
+    setInterval(() => observer.next(new Date().toString()), 1000);
+  });
+
 
   ngOnInit(): void {
       // this.counterFunction();
@@ -68,4 +77,17 @@ export class RxjsComponent implements OnInit {
   addWarning(warning:string):void{
     this.addWarning(warning);
   }
+
+
+
+  toggle(){
+    this.visible = !this.visible;
+    if(this.visible){
+      this.open.emit("Open Event");
+    }else{
+      this.close.emit("Closed Event");
+    }
+    
+  }
+
 }

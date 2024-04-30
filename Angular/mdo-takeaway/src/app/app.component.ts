@@ -69,6 +69,18 @@ export class AppComponent implements OnInit {
   callChildMethod():void{
     this.utilsComponent.inputValue="FROM parent component";
   }
+
+  //EventEmitter
+
+  openEvent(event:Event){
+    console.log(event);
+  }
+  closeEvent(event:Event){
+    console.log(event);
+    
+  }
+
+  
   
 
 }

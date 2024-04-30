@@ -34,5 +34,5 @@
 
 <!-- <button (click)="callChildMethod()" >call child methode</button> -->
 <!-- <app-utils></app-utils> -->
-<!-- <app-rxjs></app-rxjs> -->
-<app-error-display></app-error-display>
+<app-rxjs (open)="openEvent($event)" (close)="closeEvent($event)" ></app-rxjs>
+<!-- <app-error-display></app-error-display> -->
