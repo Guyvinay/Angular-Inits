@@ -25,8 +25,7 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
     PopupComponent,
     GitComponent,
     UtilsComponent,
-    RxjsComponent,
-   
+    RxjsComponent,   
   ],
   imports: [
     BrowserModule,
