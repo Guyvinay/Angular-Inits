@@ -22,17 +22,23 @@
  -->
 
 <!-- <c-search (searchChange)="search($event)" placeholder="Search"></c-search> -->
-<c-search (searchChange)="searchFieldSub.next($event)" placeholder="Search Query"></c-search>
+<!-- <c-search (searchChange)="searchFieldSub.next($event)" placeholder="Search Query"></c-search> -->
 
 <!-- <div>
   <span>{{text}}</span>
 </div> -->
 
-<app-git></app-git>
+<!-- <app-git></app-git> -->
 
 <!-- <app-utils></app-utils> -->
 
-<button (click)="callChildMethod()" >call child methode</button>
-<app-utils></app-utils>
-<app-rxjs (open)="openEvent($event)" (close)="closeEvent($event)" ></app-rxjs>
-<app-error-display></app-error-display>
+<!-- <button (click)="callChildMethod()" >call child methode</button> -->
+<!-- <app-utils></app-utils> -->
+<!-- <app-rxjs (open)="openEvent($event)" (close)="closeEvent($event)" ></app-rxjs> -->
+<!-- <app-error-display></app-error-display> -->
+<!-- <app-drawer (closeDrawer)="onCloseDrawer()"></app-drawer> -->
+<button mat-button (click)="toggleDrawer()">Toggle Drawer</button>
+<app-drawer width="300px" position="end" [opened]="drawerOpened" (closed)="onDrawerClosed()">
+  <!-- Drawer content goes here -->
+  <p>This is drawer content</p>
+</app-drawer>

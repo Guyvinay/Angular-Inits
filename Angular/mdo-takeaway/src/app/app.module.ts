@@ -14,7 +14,9 @@ import { PopupComponent } from './new/popup/popup.component';
 import { GitComponent } from './components/git/git.component';
 import { UtilsComponent } from './components/utils/utils.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
-
+import { DrawerComponent } from './custom/drawer/drawer.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
     PopupComponent,
     GitComponent,
     UtilsComponent,
-    RxjsComponent,   
+    RxjsComponent,
+    DrawerComponent,   
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
     HttpClientModule,
     MatCardModule,
     ScrollingModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     provideAnimationsAsync()

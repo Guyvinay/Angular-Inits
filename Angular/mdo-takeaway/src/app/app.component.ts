@@ -80,7 +80,19 @@ export class AppComponent implements OnInit {
     
   }
 
-  
+  onCloseDrawer(){
+    console.log("hii")
+  }
+
+  drawerOpened: boolean = false;
+
+  toggleDrawer() {
+    this.drawerOpened = !this.drawerOpened;
+  }
+
+  onDrawerClosed() {
+    this.drawerOpened = false;
+  }
   
 
 }
