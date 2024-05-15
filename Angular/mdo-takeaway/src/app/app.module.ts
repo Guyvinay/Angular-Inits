@@ -17,6 +17,9 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { DrawerComponent } from './custom/drawer/drawer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { HomeComponent } from './home/home.component';
+import { ReassignmentListComponent } from './reassignment-list/reassignment-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { MatIconModule } from '@angular/material/icon';
     GitComponent,
     UtilsComponent,
     RxjsComponent,
-    DrawerComponent,   
+    DrawerComponent,
+    HomeComponent,
+    ReassignmentListComponent,   
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { MatIconModule } from '@angular/material/icon';
     ScrollingModule,
     MatTableModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   providers: [
     provideAnimationsAsync()
