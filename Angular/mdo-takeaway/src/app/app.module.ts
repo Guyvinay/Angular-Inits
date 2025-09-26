@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatTableModule } from '@angular/material/table';
 import { SearchComponent } from './custom/search/search.component';
+import { RangeSliderComponent } from './custom/range-slider/range-slider.component';
 import { NgTCComponent } from './new/ng-t-c/ng-t-c.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -20,6 +21,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { ReassignmentListComponent } from './reassignment-list/reassignment-list.component';
 import { FormsModule } from '@angular/forms';
+import { MaterialComponent } from './components/material/material.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -33,7 +40,10 @@ import { FormsModule } from '@angular/forms';
     RxjsComponent,
     DrawerComponent,
     HomeComponent,
-    ReassignmentListComponent,   
+    ReassignmentListComponent,
+    MaterialComponent,
+    MyDialogComponent,
+    RangeSliderComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +54,12 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     MatIconModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,  
+    MatMenuModule,
+    MatDialogModule,
+    MatTableModule,
+    MatTabsModule,
+    MatSliderModule
   ],
   providers: [
     provideAnimationsAsync()
